@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+
+
+
+<h1>Ajouter une recette</h1>
+
+<form class="form" method="POST" action="/addRecette">
+    <div class="form-group">
+        <input type="text" placeholder="name" name="name" />
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="description" name="description" />
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="ingredients" name="ingredient" />
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="macro" name="macro" />
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="image" name="image" />
+    </div>
+   
+    <input type="submit" class="btn btn-primary" value="Envoyer" />
+</form>
+
+
+
+
+<%- include('./partials/footer.ejs') %>

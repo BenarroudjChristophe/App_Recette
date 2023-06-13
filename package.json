@@ -1,7 +1,7 @@
 {
-  "name": "table-score",
+  "name": "AppRecette",
   "version": "0.0.1",
-  "description": "Table de score des equipes nationales depuis 1900",
+  "description": "App Recette",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "CHristophe",
+  "author": "Christophe",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",

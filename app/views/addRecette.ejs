@@ -4,6 +4,10 @@
 
 <h1>Ajouter une recette</h1>
 
+<% if(locals.error) {%>
+    <h1 style="color: red;"> <%= error %></h1>
+    <%}%>
+
 <form class="form" method="POST" action="/addRecette">
     <div class="form-group">
         <input type="text" placeholder="name" name="name" />

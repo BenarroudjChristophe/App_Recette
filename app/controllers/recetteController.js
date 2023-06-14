@@ -12,7 +12,7 @@ const recetteController = {
       const { name, description, macro, image, ingredient } = req.body;
       if (!name || !description || !macro || !ingredient) {
         return res.render("addRecette", {
-          error: "Veuillez remplir tout les champs",
+          error: "Veuillez remplir tous les champs",
         });
       }
 
@@ -25,12 +25,12 @@ const recetteController = {
         return;
       }
 
-      const recette = await Recette.create({
+      await Recette.create({
         name: name,
         description: description,
         macro: macro,
         image: image,
-        ingredient_id: ingredient,
+        ingredient: ingredient,
         category_id: 1,
       });
       res.render("index", { message: "Votre recette à été ajouté" });

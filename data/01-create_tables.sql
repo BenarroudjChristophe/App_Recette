@@ -24,7 +24,7 @@ CREATE TABLE "recette" (
     "description" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "category_id" INTEGER,
-    
+    "ingredient_id" INTEGER,
     "macro" TEXT NOT NULL,
     "image" TEXT,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -40,12 +40,12 @@ CREATE TABLE "recetteIngredient" (
   PRIMARY KEY (recette_id, ingredient_id)
   
 );
-
+INSERT INTO "categorie" (name) VALUES ('fromage');
 ALTER TABLE "recette" ADD FOREIGN KEY ("ingredient_id") REFERENCES "ingredient"("id");
 ALTER TABLE "recette" ADD FOREIGN KEY ("category_id") REFERENCES "categorie"("id");
 ALTER TABLE "recetteIngredient" ADD FOREIGN KEY ("recette_id") REFERENCES "recette"("id");
+ALTER TABLE "recetteIngredient" ADD FOREIGN KEY ("ingredient_id") REFERENCES "ingredient"("id");
 
--- ALTER TABLE "recetteIngredient" ADD FOREIGN KEY ("ingredient_id") REFERENCES "ingredient"("id");
 
 -- INSERT INTO "recetteIngredient" ("recette_id","ingredient_id") VALUES (1,1);
 INSERT INTO "ingredient" (name, macro) VALUES ('comté', 1);

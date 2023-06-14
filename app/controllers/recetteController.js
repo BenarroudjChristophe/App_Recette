@@ -1,6 +1,7 @@
 const { Recette } = require("../models");
 const { Ingredient } = require("../models");
 const { Category } = require("../models");
+const { category } = require("./categoryController");
 
 const recetteController = {
   recette: async (req, res) => {
@@ -9,8 +10,9 @@ const recetteController = {
 
   newRecette: async (req, res) => {
     try {
-      const { name, description, macro, image, ingredient } = req.body;
-      if (!name || !description || !macro || !ingredient) {
+      const { name, description, macro, image, ingredient, category } =
+        req.body;
+      if (!name || !description || !macro || !ingredient || !category) {
         return res.render("addRecette", {
           error: "Veuillez remplir tous les champs",
         });
@@ -31,7 +33,7 @@ const recetteController = {
         macro: macro,
         image: image,
         ingredient: ingredient,
-        category_id: 1,
+        category: category,
       });
       res.render("index", { message: "Votre recette à été ajouté" });
     } catch (error) {
